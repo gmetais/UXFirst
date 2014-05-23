@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>UXFirst Demo Page</title>
+        <script src="../uxfirst.min.js"></script>
+    </head>
+    <body>
+        <h1>UXFirst Demo Page</h1>
+        <div id="firstPage" style="color:red;font-weight:bold;"></div>
+        <div>The UX score is <span id="score"></span>/100</div>
+        <div>The average loadTime is <span id="avg"></span>ms</div>
+
+        <script>
+            var score = UXFirst.score();
+            var avg = UXFirst.avg();
+
+            if (avg === null) {
+                document.getElementById('firstPage').innerHTML = "The first page doesn't have the score yet. You need to reload the page.";
+            }
+
+            document.getElementById('score').innerHTML = score;
+            document.getElementById('avg').innerHTML = avg;
+        </script>
+    </body>
+</html>
