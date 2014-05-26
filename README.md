@@ -11,9 +11,9 @@ Think UX First! Remove non-important things from your pages when the user has al
 
 ## Usage
 
-1) Include the `uxfirst.min.js` script in every page of your site. As it is small (around 900 bytes before gzip), it is better if you inline it or concatenate with another script.
+1) Include the `uxfirst.min.js` script in every page of your site. As it is tiny (less than 700 bytes before gzip), it is better if you inline it or concatenate with another script.
 
-2) Then, use this function in your code: **UXFirst.avg()**. It returns the average load time in milliseconds, for all the pages the user loaded in the last 2 hours.
+2) Then, use this function in your code: **uxFirst()**. It returns the average load time in milliseconds, for all the pages the user loaded in the last 2 hours.
 
 Before the first page is fully loaded, the average will be `null` (`null` is the same as 0 when testing if it is > or < than a value).
 
@@ -21,7 +21,7 @@ Before the first page is fully loaded, the average will be `null` (`null` is the
 
 ```html
 <script>
-	if (UXFirst.avg() < 10000) {
+	if (uxFirst() < 10000) {
 		// Load something more for users having pages loading faster than 10 seconds
 		...
 	}
@@ -48,7 +48,7 @@ Above 12 seconds, this is very slow and no-one should have to wait that long.
 
 ## Compatibility
 
-The script will work on E9+ and every other browser. When used on IE8 or IE7, the function UXFirst.avg() will respond `null`, so you don't have to care about them not being supported.
+The script will work on E9+ and every other browser. When used on IE8 or IE7, the function uxFirst() will respond `null`, so you don't have to care about them not being supported.
 
 This script uses the Navigation Timing API when it is available and has a fallback (less accurate) when it is not.
 

@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>UXFirst Demo Page</title>
-        <script src="../uxfirst.js"></script>
+        <script src="../uxfirst.min.js"></script>
     </head>
     <body>
         <h1>UXFirst Demo Page</h1>
@@ -9,7 +9,7 @@
         <div>The average loadTime is <span id="avg"></span>ms</div>
 
         <script>
-            var avg = UXFirst.avg();
+            var avg = uxFirst();
 
             if (avg === null) {
                 document.getElementById('firstPage').innerHTML = "The first page doesn't have the score yet. You need to reload the page.";

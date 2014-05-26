@@ -1,9 +1,16 @@
-(function(global, doc){
+(function(global){
+    var doc = global.document;
+    var storage = global.localStorage;
+    var perf = global.performance;
+
+    if (!doc.addEventListener) {
+        return;
+    }
 
     // Only keep the metrics for the last 2 hours
-    var timeout = 120;
+    var timeout = 7200000;
 
-    var startTime = new Date().getTime();
+    var startTime = Date.now();
 
     // Wait for the document ready event
     function checkIfDocumentIsComplete() {
@@ -13,7 +20,7 @@
         }
         return false;
     }
-    if (!checkIfDocumentIsComplete() && doc.addEventListener) {
+    if (!checkIfDocumentIsComplete()) {
         doc.addEventListener('readystatechange', checkIfDocumentIsComplete);
     }
 
@@ -22,11 +29,11 @@
         var currentPageLoadTime;
         var newData = [];
 
-        if (global.performance && global.performance.timing) {
-            currentPageLoadTime = global.performance.timing.loadEventEnd - global.performance.timing.fetchStart;
+        if (perf && perf.timing) {
+            currentPageLoadTime = perf.timing.loadEventEnd - perf.timing.fetchStart;
         } else {
             // For browsers that don't support Navigation API
-            currentPageLoadTime = new Date().getTime() - startTime;
+            currentPageLoadTime = Date.now() - startTime;
         }
 
         // Get the previous pages timings
@@ -34,23 +41,23 @@
 
         // Remove the timings too old
         for (var i=0, max=localData.length ; i<max ; i++) {
-            if (localData[i].date + (timeout * 60000) > startTime) {
+            if (localData[i].d + timeout > startTime) {
                 newData.push(localData[i]);
             }
         }
 
         // Add the new timing
         newData.push({
-            date: startTime,
-            load: currentPageLoadTime
+            d: startTime,
+            l: currentPageLoadTime
         });
 
         // Save
-        global.localStorage.setItem('uxfirst', JSON.stringify(newData));
+        storage.setItem('uxfirst', JSON.stringify(newData));
     }
 
     function readLocalStorage() {
-        var localData = global.localStorage.getItem('uxfirst');
+        var localData = storage.getItem('uxfirst');
         if (!localData) {
             return [];
         }
@@ -58,24 +65,15 @@
     }
 
 
-    global.UXFirst = {
-        
-        avg : function() {
+    global.uxFirst = function() {
             var localData = readLocalStorage();
             var sum = 0;
 
-            if (!localData.length) {
-                // Before the first page is fully loaded, the average will be null.
-                // Testing if (UXFirst.avg() < 5000) will be true.
-                return null;
-            }
-
             for (var i=0, max=localData.length ; i<max ; i++) {
-                sum += localData[i].load;
+                sum += localData[i].l;
             }
 
-            return Math.round(sum / localData.length);
-        }
+            return Math.round(sum / localData.length) || null;
     };
 
-}(this, this.document));
+}(this));
