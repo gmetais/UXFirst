@@ -11,9 +11,9 @@ Use this script to detect slow users on your website, so you can improve their n
 
 ## Usage
 
-1) Include the `uxfirst.min.js` script in every page of your site. As it is tiny (less than 700 bytes before gzip), it is better if you inline it or concatenate with another script.
+1) Include the `uxfirst.min.js` script in every page of your site. It simply saves the page load time in the user's localStorage. As it is tiny (less than 700 bytes before gzip), it is better if you inline it or concatenate with another script.
 
-2) Then, use this global function in your code: **uxFirst()**. It returns the average load time in milliseconds, for all the pages the user loaded in the last 2 hours.
+2) Then, use this global function in your code: **uxFirst()**. It returns the average load time in milliseconds, for all the pages the user loaded on your site in the last 2 hours.
 
 Before the first page is fully loaded, the average will be `null` (and `null` is the same as 0 when testing if it is > or < than a value).
 
