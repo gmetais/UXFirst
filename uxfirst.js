@@ -59,22 +59,14 @@
 
 
     global.UXFirst = {
-        score : function() {
-            // Max score is 100 when loadtime is <= 1s
-            // Min score is 0 when loadtime is >= 15s
-            // Between, the curve is linear
-            var avg = this.avg();
-            if (avg === null) {
-                return null;
-            }
-            return Math.min(Math.max((750 - (avg / 20)) / 7, 0), 100);
-        },
-
+        
         avg : function() {
             var localData = readLocalStorage();
             var sum = 0;
 
             if (!localData.length) {
+                // Before the first page is fully loaded, the average will be null.
+                // Testing if (UXFirst.avg() < 5000) will be true.
                 return null;
             }
 
