@@ -7,6 +7,7 @@ Use this script to detect slow users on your website, so you can improve their n
 
 ```Slowness = Frustration```
 
+Think UX First! Remove non-important things from your pages when the user has already been waiting for ages.
 
 ## Usage
 
@@ -14,7 +15,7 @@ Use this script to detect slow users on your website, so you can improve their n
 
 2) Then, use this function in your code: **UXFirst.avg()**. It returns the average load time in milliseconds, for all the pages the user loaded in the last 2 hours.
 
-Before the first page is fully loaded, the average will be `null` (same as 0 when testing if it is > or < than a value).
+Before the first page is fully loaded, the average will be `null` (`null` is the same as 0 when testing if it is > or < than a value).
 
 ## Examples
 
@@ -31,7 +32,7 @@ Before the first page is fully loaded, the average will be `null` (same as 0 whe
 
 - Don't load ads for users already having a slow navigation
 - Don't load some slow widgets
-- Use lower definition images
+- Use lower definition images or videos
 - Don't load custom fonts
 - Anything you can imagine to reduce user frustration
 
@@ -42,7 +43,7 @@ Under 3 seconds, it is the ideal load time.
 
 The average load time is near 7 seconds on the web.
 
-Above 15 seconds, this is very slow and no-one should have to wait that long.
+Above 12 seconds, this is very slow and no-one should have to wait that long.
 
 
 ## Compatibility
@@ -51,3 +52,13 @@ The script will work on E9+ and every other browser. When used on IE8 or IE7, th
 
 This script uses the Navigation Timing API when it is available and has a fallback (less accurate) when it is not.
 
+
+## Contributing
+
+Feedback is very precious and any help is more than welcome!
+
+
+## Author
+
+Gaël Métais. I'm a webperf freelance based in Paris.
+If you understand french, you can visit [my website](http://www.gaelmetais.com).
