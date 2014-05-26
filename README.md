@@ -15,14 +15,14 @@ Use this script to detect slow users on your website, so you can improve their n
 
 2) Then, use this function in your code: **uxFirst()**. It returns the average load time in milliseconds, for all the pages the user loaded in the last 2 hours.
 
-Before the first page is fully loaded, the average will be `null` (`null` is the same as 0 when testing if it is > or < than a value).
+Before the first page is fully loaded, the average will be `null` (and `null` is the same as 0 when testing if it is > or < than a value).
 
 ## Examples
 
 ```html
 <script>
 	if (uxFirst() < 10000) {
-		// Load something more for users having pages loading faster than 10 seconds
+		// Load ads for users having pages loading faster than 10 seconds
 		...
 	}
 </script>
