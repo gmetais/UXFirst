@@ -68,12 +68,16 @@
     global.uxFirst = function() {
             var localData = readLocalStorage();
             var sum = 0;
+            var dataLength = localData.length;
+            if(dataLength < 3) {
+                return null;
+            }
 
-            for (var i=0, max=localData.length ; i<max ; i++) {
+            for (var i=0, max=dataLength ; i<max ; i++) {
                 sum += localData[i].l;
             }
 
-            return Math.round(sum / localData.length) || null;
+            return Math.round(sum / dataLength) || null;
     };
 
 }(this));
