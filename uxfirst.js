@@ -65,19 +65,21 @@
     }
 
 
-    global.uxFirst = function() {
-            var localData = readLocalStorage();
-            var sum = 0;
-            var dataLength = localData.length;
-            if(dataLength < 3) {
-                return null;
-            }
+    global.uxFirst = function(minNumberOfMeasures) {
+        var minNumber = minNumberOfMeasures || 1;
+        var localData = readLocalStorage();
+        var dataLength = localData.length;
+        var sum = 0;
+        
+        if(dataLength < minNumberOfMeasures) {
+            return null;
+        }
 
-            for (var i=0, max=dataLength ; i<max ; i++) {
-                sum += localData[i].l;
-            }
+        for (var i=0, max=dataLength ; i<max ; i++) {
+            sum += localData[i].l;
+        }
 
-            return Math.round(sum / dataLength) || null;
+        return Math.round(sum / dataLength);
     };
 
 }(this));

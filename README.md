@@ -7,7 +7,7 @@ Use this script to detect slow users on your website, so you can improve their n
 
 ```Slowness = Frustration```
 
-**Think UX First!** Remove non-important things from your pages when the user has already been waiting for ages.
+**Think UX First!** Remove non-important things from your interface when the user has already been waiting for ages.
 
 ## Usage
 
@@ -27,6 +27,20 @@ Before the first page is fully loaded, the average will be `null` (and `null` is
 	}
 </script>
 ```
+
+## Options
+
+### minNumberOfMeasures (optional)
+
+The `uxFirst` function will return `null` as long as the number of measures is not reached. Default is 1.
+
+```js
+// Wait for 3 measures before using uxFirst
+if (uxFirst(3) < 10000) { ... }
+```
+
+It can help reducing yo-yo effect: the 1st page loads slowly - UXFirst helps accelerating the 2nd page and the average load-time gets under your limit - the 3rd page loads slowly again... The page content could look inconsistent if you use this script to remove a functionnality the user might be looking for.
+
 
 ## Use cases
 
