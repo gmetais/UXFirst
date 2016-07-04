@@ -1,6 +1,6 @@
 {
   "name": "UXFirst",
-  "description": "Small Javascript that tells you if a visitor is having a bad user experience because your site is slow",
+  "description": "Tiny script that detects slow users so you can enhance their user experience",
   "version": "0.2.0",
   "homepage": "https://github.com/gmetais/UXFirst",
   "author": {

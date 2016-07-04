@@ -1,4 +1,6 @@
 (function(global){
+    'use strict';
+
     var doc = global.document;
     var storage = global.localStorage;
     var perf = global.performance;
@@ -79,7 +81,7 @@
             sum += localData[i].l;
         }
 
-        return Math.round(sum / dataLength);
+        return sum / dataLength;
     };
 
 }(this));

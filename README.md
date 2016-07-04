@@ -7,7 +7,7 @@ Use this script to detect slow users on your website, so you can improve their n
 
 ```Slowness = Frustration```
 
-**Think UX First!** Remove non-important things from your interface when the user has already been waiting for ages.
+**Think UX First.** Remove non-important things from your interface when the user has already been waiting for ages.
 
 ## Usage
 
@@ -74,5 +74,4 @@ Feedback is very precious and any help is more than welcome!
 
 ## Author
 
-Gaël Métais. I'm a webperf freelance based in Paris.
-If you understand french, you can visit [my website](http://www.gaelmetais.com).
+Gaël Métais. I'm a webperf freelance. If you understand french, you can visit [my website](http://www.gaelmetais.com).
