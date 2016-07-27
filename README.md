@@ -74,4 +74,6 @@ Feedback is very precious and any help is more than welcome!
 
 ## Author
 
-Gaël Métais. I'm a webperf freelance. If you understand french, you can visit [my website](http://www.gaelmetais.com).
+Gaël Métais. I'm a webperf freelance. Follow me on Twitter [@gaelmetais](https://twitter.com/gaelmetais), I tweet mostly about Front-end and Web Performances.
+
+I can also help your company about Web Performances, visit [my website](http://www.gaelmetais.com).
